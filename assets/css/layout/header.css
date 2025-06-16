@@ -1,0 +1,18 @@
+/* Header styles */
+.site-header {
+  background-color: white;
+  box-shadow: var(--box-shadow);
+  padding: var(--spacing-md) 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}

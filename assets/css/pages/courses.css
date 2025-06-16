@@ -1,0 +1,84 @@
+/* Course page styles */
+.course-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.course-header {
+  margin-bottom: 30px;
+}
+
+.course-title {
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+.course-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.course-level, .course-duration {
+  display: inline-block;
+  background-color: #f5f5f5;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.course-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .course-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lessons-list {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.lesson-item {
+  margin-bottom: 10px;
+}
+
+.lesson-link {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.lesson-link:hover {
+  background-color: #eaeaea;
+}
+
+.lesson-number {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+/* Hero section */
+.hero-section {
+  background-color: var(--light-background);
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-lg);
+}

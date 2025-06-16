@@ -1,0 +1,59 @@
+---
+layout: default
+---
+
+<div class="lesson-container">
+  <div class="lesson-sidebar">
+    {% assign course_id = page.course %}
+    {% assign course = site.courses | where_exp: "item", "item.course_id == course_id" | first %}
+    
+    <div class="course-info">
+      <h3><a href="{{ course.url | relative_url }}">{{ course.title }}</a></h3>
+    </div>
+    
+    {% include lesson_navigation.html %}
+  </div>
+  
+  <div class="lesson-content">
+    <header class="lesson-header">
+      <h1 class="lesson-title">{{ page.title }}</h1>
+      <div class="lesson-meta">
+        <span>Lesson {{ page.lesson_number }}</span>
+        {% if page.duration %}
+          <span class="lesson-duration">{{ page.duration }} min</span>
+        {% endif %}
+      </div>
+    </header>
+    
+    <div class="lesson-body">
+      {{ content }}
+    </div>
+    
+    <div class="lesson-navigation">
+      {% assign course_id = page.course %}
+      {% assign lessons_path = "_courses/" | append: course_id | append: "/lessons" %}
+      {% assign lessons = site.pages | where_exp: "item", "item.path contains lessons_path" | where: "layout", "lesson" | sort: "lesson_number" %}
+      {% assign lesson_index = 0 %}
+      {% for lesson in lessons %}
+        {% if lesson.url == page.url %}
+          {% assign lesson_index = forloop.index0 %}
+        {% endif %}
+      {% endfor %}
+      
+      <div class="lesson-nav-buttons">
+        {% assign prev_index = lesson_index | minus: 1 %}
+        {% if prev_index >= 0 %}
+          {% assign prev_lesson = lessons[prev_index] %}
+          <a href="{{ prev_lesson.url | relative_url }}" class="nav-button prev-lesson">← Previous Lesson</a>
+        {% endif %}
+        
+        {% assign next_index = lesson_index | plus: 1 %}
+        {% assign last_index = lessons.size | minus: 1 %}
+        {% if next_index <= last_index %}
+          {% assign next_lesson = lessons[next_index] %}
+          <a href="{{ next_lesson.url | relative_url }}" class="nav-button next-lesson">Next Lesson →</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

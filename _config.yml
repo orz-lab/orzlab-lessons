@@ -1,0 +1,31 @@
+# Site settings
+title: Orzlab Learning Platform
+email: your-email@example.com
+description: >-
+  Educational platform offering various courses in programming, web development, and more.
+baseurl: ""
+url: "https://orz-lab.github.io"
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  
+# Collections
+collections:
+  courses:
+    output: true
+    permalink: /:collection/:path/
+    
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "courses"
+    values:
+      layout: "course"

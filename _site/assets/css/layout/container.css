@@ -1,0 +1,12 @@
+/* Container styles */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.main-content {
+  padding: var(--spacing-xl) 0;
+  min-height: calc(100vh - 120px);
+}
