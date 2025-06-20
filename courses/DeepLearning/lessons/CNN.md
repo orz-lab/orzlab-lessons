@@ -1,9 +1,8 @@
 ---
-layout: lesson
-title: Introduction to Python
-course: python-basics
+title: "Máy tính nhìn thế giới như thế nào? - Convolutional Neural Network"
 lesson_number: 1
-duration: 30
+description: Lmao
+thumbnail: assets/images/courses/DeepLearning/CNN-thumnail.png
 ---
 
 # Introduction to Python

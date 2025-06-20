@@ -11,8 +11,9 @@
 @import 'layout/footer.css';
 
 /* Components */
-@import 'components/buttons.css';
+@import 'import components/buttons.css';
 @import 'components/course-cards.css';
+@import 'components/lesson-cards.css';
 @import 'components/navigation.css';
 
 /* Pages */
