@@ -2,7 +2,7 @@
 title: Orzlab Study
 email: contact@orzlab.net
 baseurl: ""
-url: "https://orz-lab.github.io"
+url: "http://study.orzlab.net/"
 
 # Build settings
 markdown: kramdown
