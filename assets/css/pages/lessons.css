@@ -36,3 +36,205 @@
   display: flex;
   justify-content: space-between;
 }
+
+.lesson-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+  max-height: 2.6em; /* 2 lines × 1.3 line-height */
+}
+
+.lesson-link {
+  display: block;
+  padding: 0.75rem 0.75rem;
+  color: var(--dark-text-color);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+/* Add these styles to the existing lessons.css file */
+
+/* Improved lesson content styling */
+.lesson-body {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-color);
+}
+
+/* Typography enhancements */
+.lesson-body h1 {
+  font-size: 2.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--primary-color-dark);
+}
+
+.lesson-body h2 {
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.lesson-body h3 {
+  font-size: 1.4rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.lesson-body p {
+  margin-bottom: 1.5rem;
+}
+
+/* Lists styling */
+.lesson-body ul, 
+.lesson-body ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.lesson-body li {
+  margin-bottom: 0.5rem;
+}
+
+/* Code blocks and inline code */
+.lesson-body pre {
+  background-color: var(--code-background, #f6f8fa);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-left: 4px solid var(--primary-color, #3498db);
+}
+
+.lesson-body code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  background-color: var(--code-background, #f6f8fa);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: var(--code-color, #24292e);
+}
+
+.lesson-body pre code {
+  background-color: transparent;
+  padding: 0;
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: inherit;
+}
+
+/* Image styling */
+.lesson-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 1.5rem 0;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+/* Blockquote styling */
+.lesson-body blockquote {
+  border-left: 4px solid var(--secondary-color, #2ecc71);
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+  font-style: italic;
+  color: var(--light-text-color, #555);
+}
+
+/* Table styling */
+.lesson-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  display: block;
+}
+
+.lesson-body th,
+.lesson-body td {
+  border: 1px solid var(--border-color, #eaeaea);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.lesson-body th {
+  background-color: var(--light-background, #f8f9fa);
+  font-weight: 600;
+}
+
+.lesson-body tr:nth-child(even) {
+  background-color: var(--light-background, #f8f9fa);
+}
+
+/* Horizontal rule */
+.lesson-body hr {
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 2rem 0;
+}
+
+/* Content container styling */
+.lesson-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  .lesson-content {
+    padding: 1.5rem;
+  }
+  
+  .lesson-body h1 {
+    font-size: 1.8rem;
+  }
+  
+  .lesson-body h2 {
+    font-size: 1.5rem;
+  }
+  
+  .lesson-body h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Responsive video container */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 1.5rem 0;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+  border: none;
+}

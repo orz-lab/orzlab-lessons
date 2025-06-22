@@ -1,8 +1,6 @@
 # Site settings
-title: Orzlab Learning Platform
-email: your-email@example.com
-description: >-
-  Educational platform offering various courses in programming, web development, and more.
+title: Orzlab Study
+email: contact@orzlab.net
 baseurl: ""
 url: "https://orz-lab.github.io"
 

@@ -4,7 +4,18 @@ layout: default
 
 <div class="course-container">
   <header class="course-header">
-    <h1 class="course-title">{{ page.title }}</h1>
+    <div class="course-header-content">
+      <div class="course-thumbnail-container">
+        <img src="{{ page.thumbnail | default: '/assets/images/course-default.jpg' | relative_url }}" alt="{{ page.title }}" class="course-thumbnail">
+      </div>
+      <div class="course-title-container">
+        <h1 class="course-title">{{ page.title }}</h1>
+        <div class="course-meta">
+          {% if page.level %}<span class="course-level">{{ page.level }}</span>{% endif %}
+          {% if page.duration %}<span class="course-duration">{{ page.duration }} hours</span>{% endif %}
+        </div>
+      </div>
+    </div>
   </header>
   
   <section class="course-content">
@@ -12,19 +23,19 @@ layout: default
       <!-- Course overview as a card -->
       <div class="lesson-card overview-card">
         <div class="card-body">
+          <h3 class="card-title">Course Overview</h3>
           <div class="card-content overview-content">
             {{ content }}
           </div>
         </div>
       </div>
       
-      <h2>Lessons</h2>
+      <h1>Lessons</h1>
       
       <!-- Lesson cards in vertical layout with thumbnails -->
       {% assign course_path = "courses/" | append: page.course_id | append: "/lessons" %}
       {% assign lessons = site.pages | where_exp: "item", "item.path contains course_path" | sort: "lesson_number" %}
       {% for lesson in lessons %}
-      <h1>Cak</h1>
         <div class="lesson-card">
           <a href="{{ lesson.url | relative_url }}" class="card-link">
             <div class="card-thumbnail">

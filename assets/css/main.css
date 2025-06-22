@@ -17,5 +17,6 @@
 @import 'components/navigation.css';
 
 /* Pages */
+@import 'pages/home.css';
 @import 'pages/courses.css';
 @import 'pages/lessons.css';

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4307.5 533.95">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #80deea;
+        stroke-width: 20px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-2, .cls-4 {
+        fill: #004d40;
+      }
+
+      .cls-2, .cls-3 {
+        stroke: #004d40;
+      }
+
+      .cls-5 {
+        font-family: PTMono-Regular, 'PT Mono';
+        font-size: 492.13px;
+      }
+
+      .cls-6 {
+        fill: #80deea;
+      }
+
+      .cls-6, .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        stroke-width: 21px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_3" data-name="Layer 3">
+    <g>
+      <rect class="cls-2" x="343.32" y="-136.43" width="19" height="353.65" rx="6.72" ry="6.72" transform="translate(312.43 393.23) rotate(-90)"/>
+      <rect class="cls-6" x="450.25" y="11.81" width="20.51" height="480.13" rx="10.25" ry="10.25" transform="translate(-43.22 399.39) rotate(-45)"/>
+      <circle class="cls-3" cx="179" cy="208.87" r="168.5"/>
+      <circle class="cls-1" cx="521.5" cy="153.37" r="112.5"/>
+      <rect class="cls-4" x="483.18" y="274.69" width="20.51" height="280.86" rx="10.25" ry="10.25" transform="translate(78.31 908.55) rotate(-90)"/>
+      <text class="cls-5" transform="translate(764.25 418.3)"><tspan x="0" y="0">Orzlab Study</tspan></text>
+    </g>
+  </g>
+</svg>

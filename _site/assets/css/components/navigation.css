@@ -1,9 +1,0 @@
-/* Navigation styles */
-.main-menu {
-  display: flex;
-  list-style: none;
-}
-
-.main-menu li {
-  margin-left: var(--spacing-lg);
-}

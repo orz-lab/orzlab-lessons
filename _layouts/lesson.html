@@ -3,16 +3,8 @@ layout: default
 ---
 
 <div class="lesson-container">
-  <div class="lesson-sidebar">
-    {% assign course_id = page.course %}
-    {% assign course = site.courses | where_exp: "item", "item.course_id == course_id" | first %}
-    
-    <div class="course-info">
-      <h3><a href="{{ course.url | relative_url }}">{{ course.title }}</a></h3>
-    </div>
-    
-    {% include lesson_navigation.html %}
-  </div>
+  <!-- Remove duplicate sidebar since we're including lesson_navigation.html -->
+  {% include lesson_navigation.html %}
   
   <div class="lesson-content">
     <header class="lesson-header">
@@ -30,13 +22,15 @@ layout: default
     </div>
     
     <div class="lesson-navigation">
-      {% assign course_id = page.course %}
-      {% assign lessons_path = "_courses/" | append: course_id | append: "/lessons" %}
-      {% assign lessons = site.pages | where_exp: "item", "item.path contains lessons_path" | where: "layout", "lesson" | sort: "lesson_number" %}
+      {% assign course_id = page.course_id %}
+      {% assign course_path = "courses/" | append: course_id | append: "/lessons" %}
+      {% assign lessons = site.pages | where_exp: "item", "item.path contains course_path" | sort: "lesson_number" %}
+      
       {% assign lesson_index = 0 %}
       {% for lesson in lessons %}
         {% if lesson.url == page.url %}
           {% assign lesson_index = forloop.index0 %}
+          {% break %}
         {% endif %}
       {% endfor %}
       
@@ -44,14 +38,13 @@ layout: default
         {% assign prev_index = lesson_index | minus: 1 %}
         {% if prev_index >= 0 %}
           {% assign prev_lesson = lessons[prev_index] %}
-          <a href="{{ prev_lesson.url | relative_url }}" class="nav-button prev-lesson">← Previous Lesson</a>
+          <a href="{{ prev_lesson.url | relative_url }}" class="nav-button nav-prev">Previous Lesson</a>
         {% endif %}
         
         {% assign next_index = lesson_index | plus: 1 %}
-        {% assign last_index = lessons.size | minus: 1 %}
-        {% if next_index <= last_index %}
+        {% if next_index < lessons.size %}
           {% assign next_lesson = lessons[next_index] %}
-          <a href="{{ next_lesson.url | relative_url }}" class="nav-button next-lesson">Next Lesson →</a>
+          <a href="{{ next_lesson.url | relative_url }}" class="nav-button nav-next">Next Lesson</a>
         {% endif %}
       </div>
     </div>

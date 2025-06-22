@@ -11,8 +11,17 @@
   align-items: center;
 }
 
+.site-branding {
+  display: flex;
+  align-items: center;
+}
+
 .site-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  padding: 8px 0; /* Add vertical padding to adjust position */
+}
+
+.site-logo img {
+  vertical-align: middle; /* Ensures proper vertical alignment */
 }

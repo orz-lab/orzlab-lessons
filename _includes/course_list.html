@@ -1,34 +1,47 @@
-<div class="course-grid">
-  {% assign course_pages = site.pages | where: "layout", "course" %}
-  {% for course in course_pages %}
-    <div class="course-card">
-      <div class="course-thumbnail">
-        {% if course.thumbnail %}
-          <img src="{{ course.thumbnail | relative_url }}" alt="{{ course.title }}">
-        {% else %}
-          <div class="thumbnail-placeholder">
-            <span>{{ course.title | slice: 0 }}</span>
-          </div>
-        {% endif %}
-      </div>
-      
-      <div class="course-content">
-        <h3>{{ course.title }}</h3>
+<div class="course-list-container">
+  <div class="course-grid">
+    {% if include.featured_only %}
+      {% assign course_pages = site.pages | where: "layout", "course" | where: "featured", true %}
+    {% else %}
+      {% assign course_pages = site.pages | where: "layout", "course" %}
+    {% endif %}
+    
+    {% for course in course_pages %}
+      <div class="course-card">
+        <div class="course-thumbnail">
+          {% if course.thumbnail %}
+            <img src="{{ course.thumbnail | relative_url }}" alt="{{ course.title }}">
+          {% else %}
+            <div class="thumbnail-placeholder">
+              <span>{{ course.title | slice: 0 }}</span>
+            </div>
+          {% endif %}
+        </div>
         
-        {% if course.level or course.duration %}
-          <div class="course-categories">
-            {% if course.level %}
-              <span class="category">{{ course.level }}</span>
-            {% endif %}
-            {% if course.duration %}
-              <span class="category">{{ course.duration }} hours</span>
-            {% endif %}
-          </div>
-        {% endif %}
-        
-        <p>{{ course.description | truncate: 100 }}</p>
-        <a href="{{ course.url | relative_url }}" class="course-link">View Course →</a>
+        <div class="course-content">
+          <h3>{{ course.title }}</h3>
+          
+          {% if course.level or course.duration %}
+            <div class="course-categories">
+              {% if course.level %}
+                <span class="category">{{ course.level }}</span>
+              {% endif %}
+              {% if course.duration %}
+                <span class="category">{{ course.duration }} hours</span>
+              {% endif %}
+            </div>
+          {% endif %}
+          
+          <p>{{ course.description | truncate: 100 }}</p>
+          <a href="{{ course.url | relative_url }}" class="course-link">Xem chủ đề này →</a>
+        </div>
       </div>
+    {% endfor %}
+  </div>
+  
+  {% if include.featured_only and course_pages.size > 0 %}
+    <div class="view-all-courses">
+      <a href="{{ '/courses' | relative_url }}" class="button">Các chủ đề khác</a>
     </div>
-  {% endfor %}
+  {% endif %}
 </div>

@@ -4,8 +4,10 @@
   flex-direction: column;
   gap: 2rem;
   margin-top: 2rem;
-  max-width: 800px;
-  width: 100%;
+  width: 100%;        /* Removed max-width constraint */
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
 }
 
 .lesson-card {
@@ -15,6 +17,8 @@
   transition: all 0.25s ease;
   border: 1px solid #eaeaea;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .lesson-card:hover {
@@ -27,18 +31,42 @@
   border-left: 4px solid var(--primary-color);
   background-color: white;
   margin-bottom: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .overview-card .card-body {
   padding: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
 }
 
-.overview-content {
+.card-content.overview-content {
+  width: 100%;
   color: var(--text-color);
+  box-sizing: border-box;
+  display: block;
+}
+
+.overview-content p,
+.overview-content h2,
+.overview-content h3,
+.overview-content ul,
+.overview-content ol {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .overview-content h2:first-child {
   margin-top: 0;
+}
+
+.overview-content p {
+  margin-bottom: 1rem;
 }
 
 .card-link {
@@ -46,6 +74,8 @@
   flex-direction: column;
   color: inherit;
   text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .card-thumbnail {
@@ -53,6 +83,8 @@
   height: 180px;
   overflow: hidden;
   background: #f5f5f5;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .card-thumbnail img {
@@ -79,12 +111,20 @@
 
 .card-body {
   padding: 1.5rem;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .card-title {
   margin-top: 0;
   margin-bottom: 0.75rem;
   font-size: 1.25rem;
+  width: 100%;
+}
+
+.card-content {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .card-content p {
@@ -92,6 +132,8 @@
   color: #666;
   font-size: 0.95rem;
   line-height: 1.5;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Index card specific styling */
@@ -105,31 +147,57 @@
 
 /* Make lessons more prominent on larger screens */
 @media (min-width: 768px) {
-  .card-link {
+  /* Change to be more specific - only apply to cards with thumbnails */
+  .lesson-card:not(.overview-card) .card-link {
     flex-direction: row;
+    width: 100%;
   }
   
-  .card-thumbnail {
+  .lesson-card:not(.overview-card) .card-thumbnail {
     width: 35%;
     height: auto;
+    flex-shrink: 0;
   }
   
-  .card-body {
+  .lesson-card:not(.overview-card) .card-body {
     width: 65%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  /* Ensure overview card always has 100% width body */
+  .lesson-card.overview-card .card-body {
+    width: 100%;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    display: block;
+  }
+  
+  .lesson-card.overview-card {
+    width: 100%;
+    display: block;
   }
 }
 
 /* Fix the course content layout to be single column */
 .course-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.lessons-container h2 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+.lessons-container {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Fix course container to ensure consistent width */
+.course-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
