@@ -24,6 +24,6 @@ defaults:
       layout: "default"
   - scope:
       path: ""
-      type: "courses"
+      type: "topics"
     values:
       layout: "course"

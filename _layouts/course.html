@@ -23,7 +23,7 @@ layout: default
       <!-- Course overview as a card -->
       <div class="lesson-card overview-card">
         <div class="card-body">
-          <h3 class="card-title">Course Overview</h3>
+          <h3 class="card-title">Topic Overview</h3>
           <div class="card-content overview-content">
             {{ content }}
           </div>
@@ -33,7 +33,7 @@ layout: default
       <h1>Lessons</h1>
       
       <!-- Lesson cards in vertical layout with thumbnails -->
-      {% assign course_path = "courses/" | append: page.course_id | append: "/lessons" %}
+      {% assign course_path = "topics/" | append: page.course_id | append: "/lessons" %}
       {% assign lessons = site.pages | where_exp: "item", "item.path contains course_path" | sort: "lesson_number" %}
       {% for lesson in lessons %}
         <div class="lesson-card">
