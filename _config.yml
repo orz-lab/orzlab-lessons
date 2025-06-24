@@ -27,3 +27,4 @@ defaults:
       type: "topics"
     values:
       layout: "course"
+logo: /assets/images/logo.svg
