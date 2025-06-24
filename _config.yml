@@ -27,4 +27,4 @@ defaults:
       type: "topics"
     values:
       layout: "course"
-logo: /assets/images/logo.svg
+logo: /assets/images/orzlab_logo.jpg
