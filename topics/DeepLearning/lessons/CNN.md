@@ -5,6 +5,7 @@ description:
 thumbnail: assets/images/courses/DeepLearning/CNN-thumnail.png
 layout: lesson
 course_id: DeepLearning
+author: "Phạm Đình Trung Hiếu"
 ---
 
 <div class="video-container">

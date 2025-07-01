@@ -238,3 +238,13 @@
   border-radius: var(--border-radius);
   border: none;
 }
+
+.lesson-authors {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.lesson-authors::before {
+  content: "👤 ";
+  margin-right: 4px;
+}

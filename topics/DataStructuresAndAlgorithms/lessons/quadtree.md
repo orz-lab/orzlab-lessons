@@ -5,6 +5,7 @@ description:
 thumbnail: assets/images/courses/DataStructuresAndAlgorithms/DataStructuresAndAlgorithms-thumnail.png
 layout: lesson
 course_id: DeepLearning
+author: "Lê Thành Đạt"
 ---
 
 <div class="video-container">
