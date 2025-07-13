@@ -1,0 +1,137 @@
+
+/* Responsive video container */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 1.5rem 0;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--border-radius);
+  border: none;
+}
+
+.lesson-authors {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.lesson-authors::before {
+  content: "👤 ";
+  margin-right: 4px;
+}
+
+/* Enhanced quote styling - for specific lesson quotes */
+.lesson-quote {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-left: 4px solid var(--primary-color);
+  border-radius: 0 8px 8px 0;
+  position: relative;
+}
+
+
+.lesson-quote blockquote {
+  margin: 0;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  border: none; /* Remove border from nested blockquote */
+  background: none; /* Remove background from nested blockquote */
+  padding: 0; /* Remove padding from nested blockquote */
+}
+
+.lesson-quote cite {
+  display: block;
+  margin-top: 1rem;
+  text-align: right;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* Standard blockquote styling - only for direct blockquotes in lesson body */
+.lesson-body > blockquote,
+.lesson-body blockquote:not(.lesson-quote blockquote) {
+  border-left: 4px solid var(--secondary-color);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #666;
+  background-color: #f9f9f9;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Expandable terms styling */
+.expandable-term {
+  position: relative;
+  display: inline;
+}
+
+.term-button {
+  background-color: rgb(168, 168, 255);
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  margin-left: 0.3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+}
+
+.term-button:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.1);
+}
+
+.term-explanation {
+  display: none;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s ease;
+}
+
+.term-explanation.show {
+  display: block;
+}
+
+.term-explanation strong {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
