@@ -5,6 +5,7 @@ course_id: DataStructuresAndAlgorithms
 description: Các video và bài viết về Cấu trúc dữ liệu và giải thuật
 thumbnail: /assets/images/courses/DataStructuresAndAlgorithms/DataStructuresAndAlgorithms-thumnail.png
 featured: true
+visible: true
 ---
 
 Cấu trúc dữ liệu và giải thuật không phải là những dòng mã khô khan – chúng là cách tư duy, là nền móng cho mọi chương trình hiệu quả.

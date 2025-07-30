@@ -7,35 +7,37 @@
     {% endif %}
     
     {% for course in course_pages %}
-      <div class="course-card">
-        <div class="course-thumbnail">
-          {% if course.thumbnail %}
-            <img src="{{ course.thumbnail | relative_url }}" alt="{{ course.title }}">
-          {% else %}
-            <div class="thumbnail-placeholder">
-              <span>{{ course.title | slice: 0 }}</span>
-            </div>
-          {% endif %}
-        </div>
-        
-        <div class="course-content">
-          <h3>{{ course.title }}</h3>
+      {% if course.visible == true %}
+        <div class="course-card">
+          <div class="course-thumbnail">
+            {% if course.thumbnail %}
+              <img src="{{ course.thumbnail | relative_url }}" alt="{{ course.title }}">
+            {% else %}
+              <div class="thumbnail-placeholder">
+                <span>{{ course.title | slice: 0 }}</span>
+              </div>
+            {% endif %}
+          </div>
           
-          {% if course.level or course.duration %}
-            <div class="course-categories">
-              {% if course.level %}
-                <span class="category">{{ course.level }}</span>
-              {% endif %}
-              {% if course.duration %}
-                <span class="category">{{ course.duration }} hours</span>
-              {% endif %}
-            </div>
-          {% endif %}
-          
-          <p>{{ course.description | truncate: 100 }}</p>
-          <a href="{{ course.url | relative_url }}" class="course-link">Xem chủ đề này →</a>
+          <div class="course-content">
+            <h3>{{ course.title }}</h3>
+            
+            {% if course.level or course.duration %}
+              <div class="course-categories">
+                {% if course.level %}
+                  <span class="category">{{ course.level }}</span>
+                {% endif %}
+                {% if course.duration %}
+                  <span class="category">{{ course.duration }} hours</span>
+                {% endif %}
+              </div>
+            {% endif %}
+            
+            <p>{{ course.description | truncate: 100 }}</p>
+            <a href="{{ course.url | relative_url }}" class="course-link">Xem chủ đề này →</a>
+          </div>
         </div>
-      </div>
+      {% endif %}
     {% endfor %}
   </div>
   
