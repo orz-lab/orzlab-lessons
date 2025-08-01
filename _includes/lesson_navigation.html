@@ -6,6 +6,10 @@
     {% assign lessons = site.pages | where_exp: "item", "item.path contains course_path" | sort: "lesson_number" %}
     
     {% for lesson in lessons %}
+      {% if lesson.visible == false %}
+        {% continue %}
+      {% endif %}
+      
       <li class="lesson-item {% if lesson.url == page.url %}active{% endif %}">
         <a href="{{ lesson.url | relative_url }}" class="lesson-link">
           <span class="lesson-number">{{ lesson.lesson_number }}</span>

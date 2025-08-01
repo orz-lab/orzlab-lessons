@@ -36,6 +36,9 @@ layout: default
       {% assign course_path = "topics/" | append: page.course_id | append: "/lessons" %}
       {% assign lessons = site.pages | where_exp: "item", "item.path contains course_path" | sort: "lesson_number" %}
       {% for lesson in lessons %}
+        {% if lesson.visible == false %}
+          {% continue %}
+        {% endif %}
         <div class="lesson-card">
           <a href="{{ lesson.url | relative_url }}" class="card-link">
             <div class="card-thumbnail">

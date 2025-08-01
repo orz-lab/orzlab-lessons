@@ -1,0 +1,62 @@
+<div class="multiple-choice">
+  <div class="quiz-question">
+    {{ include.question }}
+  </div>
+  
+  <div class="quiz-options">
+    {% if include.option_a %}
+      <div class="option-row">
+        <input type="radio" id="{{ include.question_id }}-a" name="{{ include.question_id }}" value="a">
+        <label for="{{ include.question_id }}-a">{{ include.option_a }}</label>
+      </div>
+    {% endif %}
+    
+    {% if include.option_b %}
+      <div class="option-row">
+        <input type="radio" id="{{ include.question_id }}-b" name="{{ include.question_id }}" value="b">
+        <label for="{{ include.question_id }}-b">{{ include.option_b }}</label>
+      </div>
+    {% endif %}
+    
+    {% if include.option_c %}
+      <div class="option-row">
+        <input type="radio" id="{{ include.question_id }}-c" name="{{ include.question_id }}" value="c">
+        <label for="{{ include.question_id }}-c">{{ include.option_c }}</label>
+      </div>
+    {% endif %}
+    
+    {% if include.option_d %}
+      <div class="option-row">
+        <input type="radio" id="{{ include.question_id }}-d" name="{{ include.question_id }}" value="d">
+        <label for="{{ include.question_id }}-d">{{ include.option_d }}</label>
+      </div>
+    {% endif %}
+    
+    {% if include.option_e %}
+      <div class="option-row">
+        <input type="radio" id="{{ include.question_id }}-e" name="{{ include.question_id }}" value="e">
+        <label for="{{ include.question_id }}-e">{{ include.option_e }}</label>
+      </div>
+    {% endif %}
+    
+    {% if include.option_f %}
+      <div class="option-row">
+        <input type="radio" id="{{ include.question_id }}-f" name="{{ include.question_id }}" value="f">
+        <label for="{{ include.question_id }}-f">{{ include.option_f }}</label>
+      </div>
+    {% endif %}
+  </div>
+  
+  <button onclick="checkAnswer('{{ include.question_id }}', '{{ include.correct_answer }}')" class="check-answer-btn">
+    {{ include.button_text | default: "Kiểm tra đáp án" }}
+  </button>
+  
+  <div id="{{ include.question_id }}-result" class="answer-result" style="display: none;">
+    <div class="result-content">
+      <strong>Đáp án đúng: {{ include.correct_label }}</strong>
+      {% if include.explanation %}
+        <p>{{ include.explanation }}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>

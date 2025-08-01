@@ -1,0 +1,24 @@
+.animation-frame {
+  margin: 2rem 0; /* Khoảng cách trên dưới với nội dung khác */
+  background-color: #f8f9fa; /* Màu nền hơi xám nhẹ */
+  border: 1px solid #151515; /* Viền xám nhạt */
+  border-radius: 8px; /* Bo tròn các góc */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ tạo chiều sâu */
+  overflow: hidden; /* Đảm bảo nội dung không tràn ra ngoài */
+}
+
+/* Tiêu đề của khung */
+.animation-frame .title {
+  padding: 0.75rem 1.25rem;
+  margin: 0;
+  background-color: #e9ecef;
+  border-bottom: 1px solid #dee2e6;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #495057;
+}
+
+/* Vùng chứa nội dung chính (animation) */
+.animation-frame .content {
+  padding: 1.25rem;
+}

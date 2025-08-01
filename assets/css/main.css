@@ -9,12 +9,14 @@
 @import 'layout/container.css';
 @import 'layout/header.css';
 @import 'layout/footer.css';
+@import 'layout/animation.css';
 
 /* Components */
 @import 'import components/buttons.css';
 @import 'components/course-cards.css';
 @import 'components/lesson-cards.css';
 @import 'components/navigation.css';
+@import 'components/quiz.css';
 
 /* Pages */
 @import 'pages/home.css';

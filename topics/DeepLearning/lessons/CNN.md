@@ -1,11 +1,12 @@
 ---
 title: "Máy tính nhìn thế giới như thế nào? - Convolutional Neural Network"
-lesson_number: 1
+lesson_number: 2
 description: 
 thumbnail: assets/images/courses/DeepLearning/CNN-thumnail.png
 layout: lesson
 course_id: DeepLearning
 author: "Phạm Đình Trung Hiếu"
+visible: true
 ---
 
 <div class="video-container">

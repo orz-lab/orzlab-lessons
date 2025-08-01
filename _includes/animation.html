@@ -1,0 +1,14 @@
+<div class="animation-frame">
+  {% if include.title %}
+    {{ include.title }}
+  {% endif %}
+  <center>
+    <div class="content">
+      {% if include.content_file %}
+      {% include {{ include.content_file }} %}
+      {% else %}
+      <p>Lỗi: Chưa có file nội dung được chỉ định.</p>
+      {% endif %}
+    </div>
+  </center>
+</div>
