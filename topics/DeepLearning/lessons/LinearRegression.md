@@ -51,7 +51,7 @@ Nhận xét trên rất hữu ích, nhưng sức mạnh thực sự của nó n�
 Câu trả lời là có! Nhìn vào biểu đồ, ta có thể dự đoán kết quả của bạn đó sẽ là tầm khoảng $8$ đến $8.2$.
 
 {% capture quiz_question %}
-Nếu một học sinh học $7.25$ giờ thì điểm của bạn sẽ tầm nhiêu?
+Nếu một học sinh học $7.25$ giờ thì điểm của học sinh đó sẽ tầm nhiêu?
 {% endcapture %}
 
 {% capture option_a %}
