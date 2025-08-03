@@ -214,3 +214,34 @@
     font-size: 1.3rem;
   }
 }
+
+
+/* Reference links styling */
+a[href^="#"] {
+  color: #87CEEB; /* Light blue color */
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px dotted #87CEEB;
+  transition: all 0.2s ease;
+}
+
+a[href^="#"]:hover {
+  color: #4682B4; /* Darker blue on hover */
+  border-bottom: 1px solid #4682B4;
+}
+
+/* Alternative: More specific styling for bracketed references */
+a[href^="#"]:before {
+  content: "";
+}
+
+a[href^="#"]:after {
+  content: "";
+}
+
+/* If you want to style specifically the bracketed references */
+a[href^="#"]:contains("[") {
+  background-color: rgba(135, 206, 235, 0.1); /* Light blue background */
+  padding: 2px 4px;
+  border-radius: 3px;
+}

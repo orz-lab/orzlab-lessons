@@ -1,14 +1,35 @@
+<!-- Universal Animation Include for both Chart.js and p5.js -->
 <div class="animation-frame">
   {% if include.title %}
-    {{ include.title }}
+    <h4>{{ include.title }}</h4>
   {% endif %}
-  <center>
-    <div class="content">
-      {% if include.content_file %}
-      {% include {{ include.content_file }} %}
-      {% else %}
-      <p>Lỗi: Chưa có file nội dung được chỉ định.</p>
-      {% endif %}
+  
+  <!-- Custom controls HTML can be passed via include.controls_html -->
+  {% if include.controls_html %}
+    <div class="animation-controls" style="margin: 15px 0; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; font-family: sans-serif;">
+      {{ include.controls_html }}
     </div>
-  </center>
+  {% endif %}
+
+  <!-- Container for the animation -->
+  {% if include.animation_type == "chart" %}
+    <div id="{{ include.container_id }}" style="width: 100%; height: 400px;">
+      <canvas id="{{ include.canvas_id }}"></canvas>
+    </div>
+  {% elsif include.animation_type == "p5" %}
+    <div id="{{ include.container_id }}" style="border: 1px solid #ccc;"></div>
+  {% endif %}
+
+  <!-- Load and initialize the animation -->
+  <script type="module">
+    import { {{ include.function_name }} } from '{{ include.script_path | relative_url }}';
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      {% if include.animation_type == "chart" %}
+        {{ include.function_name }}('{{ include.canvas_id }}');
+      {% elsif include.animation_type == "p5" %}
+        {{ include.function_name }}('{{ include.container_id }}');
+      {% endif %}
+    });
+  </script>
 </div>

@@ -1,45 +1,46 @@
-<div id="controls"
-    style="margin: 15px 0; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; font-family: sans-serif;">
-    <div>
-        <label for="wind-direction">Hướng Gió (0°-360°):</label>
-        <input type="range" id="wind-direction" min="0" max="360" value="45">
-        <span id="direction-value">45°</span>
-    </div>
-    <div>
-        <label for="wind-speed">Tốc Độ Gió (0-100) km/h:</label>
-        <input type="range" id="wind-speed" min="0" max="100" value="50">
-        <span id="speed-value">50</span>
-    </div>
-</div>
+// Wind Vector Animation using p5.js
+// Animation: Interactive wind vector with particles
 
-<div id="wind-canvas-container" style="border: 1px solid #ccc;"></div>
+export function createWindVectorAnimation(containerId, controlsConfig = {}) {
+    // Default control IDs
+    const controls = {
+        directionSlider: controlsConfig.directionSlider || 'wind-direction',
+        speedSlider: controlsConfig.speedSlider || 'wind-speed',
+        directionValue: controlsConfig.directionValue || 'direction-value',
+        speedValue: controlsConfig.speedValue || 'speed-value'
+    };
 
-<script>
     function windSketch(p) {
-
-        // Các biến điều khiển
+        // Control elements
         let directionSlider, speedSlider;
         let directionValueSpan, speedValueSpan;
 
-        // Các đối tượng trong mô phỏng
+        // Animation objects
         let windArrow;
         let particles = [];
         const NUM_PARTICLES = 100;
 
         p.setup = function () {
-            let container = p.select('#wind-canvas-container');
+            let container = p.select(`#${containerId}`);
             let canvasWidth = container ? container.width : 600;
             let canvas = p.createCanvas(canvasWidth, 400);
             canvas.parent(container);
             p.angleMode(p.DEGREES);
 
-            directionSlider = p.select('#wind-direction');
-            speedSlider = p.select('#wind-speed');
-            directionValueSpan = p.select('#direction-value');
-            speedValueSpan = p.select('#speed-value');
+            // Get control elements
+            directionSlider = p.select(`#${controls.directionSlider}`);
+            speedSlider = p.select(`#${controls.speedSlider}`);
+            directionValueSpan = p.select(`#${controls.directionValue}`);
+            speedValueSpan = p.select(`#${controls.speedValue}`);
+
+            if (!directionSlider || !speedSlider || !directionValueSpan || !speedValueSpan) {
+                console.error('Required control elements not found for wind vector animation');
+                return;
+            }
 
             windArrow = new WindArrow(p.width / 2, p.height / 2);
 
+            // Initialize particles
             for (let i = 0; i < NUM_PARTICLES; i++) {
                 particles.push(new Particle());
             }
@@ -47,6 +48,8 @@
 
         p.draw = function () {
             p.background(245, 245, 245);
+
+            if (!directionSlider || !speedSlider) return;
 
             let direction = directionSlider.value();
             let speed = speedSlider.value();
@@ -60,20 +63,26 @@
 
             let windForce = p5.Vector.fromAngle(p.radians(direction), speed / 100);
 
-            // **THAY ĐỔI QUAN TRỌNG:**
-            // Truyền giá trị 'speed' vào hàm update của mỗi hạt
+            // Update particles
             particles.forEach(particle => {
                 particle.applyForce(windForce);
-                particle.update(speed); // <--- Truyền tốc độ vào đây
+                particle.update(speed);
                 particle.edges();
                 particle.display();
             });
         };
 
-        // Class cho Vector Gió (Không đổi)
+        // Wind Arrow Class
         class WindArrow {
-            constructor(x, y) { this.pos = p.createVector(x, y); }
-            update(angle, magnitude) { this.angle = angle; this.magnitude = magnitude; }
+            constructor(x, y) {
+                this.pos = p.createVector(x, y);
+            }
+
+            update(angle, magnitude) {
+                this.angle = angle;
+                this.magnitude = magnitude;
+            }
+
             display() {
                 p.push();
                 p.translate(this.pos.x, this.pos.y);
@@ -88,27 +97,22 @@
             }
         }
 
-        // Class cho các hạt bụi
+        // Particle Class
         class Particle {
             constructor() {
                 this.pos = p.createVector(p.random(p.width), p.random(p.height));
                 this.vel = p.createVector(0, 0);
                 this.acc = p.createVector(0, 0);
-                // **THAY ĐỔI QUAN TRỌNG:**
-                // Xóa bỏ this.maxSpeed cố định
             }
 
             applyForce(force) {
                 this.acc.add(force);
             }
 
-            // **THAY ĐỔI QUAN TRỌNG:**
-            // Hàm update giờ nhận vào tốc độ gió
             update(windSpeed) {
                 this.vel.add(this.acc);
 
-                // Giới hạn tốc độ của hạt tỉ lệ với tốc độ gió
-                // Hệ số 0.05 để tốc độ không quá nhanh trên màn hình
+                // Limit speed proportional to wind speed
                 let maxSpeed = windSpeed * 0.05;
                 this.vel.limit(maxSpeed);
 
@@ -131,5 +135,6 @@
         }
     }
 
-    new p5(windSketch);
-</script>
+    // Create and return the p5 instance
+    return new p5(windSketch);
+}

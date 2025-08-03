@@ -5,6 +5,7 @@
   border-radius: 8px; /* Bo tròn các góc */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ tạo chiều sâu */
   overflow: hidden; /* Đảm bảo nội dung không tràn ra ngoài */
+  padding: 1rem;
 }
 
 /* Tiêu đề của khung */

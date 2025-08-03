@@ -14,9 +14,26 @@ Bạn có thể đã gặp nó đâu đó trong môn Toán, hay trong Vật Lý 
 
 Ở ngoài đời, chúng ta có thể biểu diễn rất nhiều thứ chỉ với 1 đơn vị đo. Ví dụ như nhiệt độ hôm nay, khoảng cách từ A đến B, tuổi của bạn, v.v. Nhưng cũng có rất nhiều đối tượng mà bạn không thể biểu diễn chúng một cách cụ thể với chỉ 1 đơn vị. Đơn cử như một cơn gió. Bạn không thể nói "cơn gió hôm nay là 10 km/h" được. 10 km/h rồi sao? Và nó thổi đi đâu? Để mô tả đầy đủ một cơn gió, bạn cần cả hướng (ví dụ: Đông Bắc) và độ lớn (ví dụ: 10 km/h).
 
+{% capture wind_controls %}
+<div>
+  <label for="wind-direction">Hướng Gió (0°-360°):</label>
+  <input type="range" id="wind-direction" min="0" max="360" value="45">
+  <span id="direction-value">45°</span>
+</div>
+<div>
+  <label for="wind-speed">Tốc Độ Gió (0-100) km/h:</label>
+  <input type="range" id="wind-speed" min="0" max="100" value="50">
+  <span id="speed-value">50</span>
+</div>
+{% endcapture %}
+
 {% include animation.html
-    title="Mô phỏng Gió và Vector"
-    content_file="anim/LinearAlgebra/lessons/Vector/wind_vector_0.html"
+  title="Mô phỏng Gió và Vector"
+  animation_type="p5"
+  container_id="wind-canvas-container"
+  function_name="createWindVectorAnimation"
+  script_path="/assets/animations/p5/wind_vector.js"
+  controls_html=wind_controls
 %}
 
 # Hai góc nhìn về Vector
@@ -37,3 +54,4 @@ Với ví dụ về cơn gió, chúng ta có thể vẽ một mũi tên hướng
 <center>
   <img src="/assets/images/courses/LinearAlgebra/lessons/Vector/vector_0.png" alt="" width="300">
 </center>
+
