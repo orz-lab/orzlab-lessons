@@ -36,7 +36,7 @@ Sau khi đi hỏi một vài bạn trong lớp, ta có một bảng dữ liệu 
   container_id="chart_0_section"
   canvas_id="chart_0"
   function_name="createBasicScatterPlot"
-  script_path="/assets/animations/chart/linear_regression_basic.js"
+  script_path="/assets/animations/chart/LinearRegression/linear_regression_basic.js"
 %}
 </div>
 
@@ -50,7 +50,7 @@ Bây giờ chúng ta sẽ tiếp tục thu thập thêm dữ liệu và vẽ th�
   container_id="chart_1_section"
   canvas_id="chart_1"
   function_name="createExtendedScatterPlot"
-  script_path="/assets/animations/chart/linear_regression_extended.js"
+  script_path="/assets/animations/chart/LinearRegression/linear_regression_extended.js"
 %}
 </div>
 
@@ -157,7 +157,7 @@ Phương trình đường thẳng có dạng: $f(x) = ax+b$.
   container_id="chart_interactive_section"
   canvas_id="chart_interactive"
   function_name="createInteractiveChart"
-  script_path="/assets/animations/chart/linear_regression_interactive.js"
+  script_path="/assets/animations/chart/LinearRegression/linear_regression_interactive.js"
   controls_html=interactive_controls
 %}
 

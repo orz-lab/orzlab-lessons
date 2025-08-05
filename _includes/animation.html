@@ -28,7 +28,12 @@
       {% if include.animation_type == "chart" %}
         {{ include.function_name }}('{{ include.canvas_id }}');
       {% elsif include.animation_type == "p5" %}
-        {{ include.function_name }}('{{ include.container_id }}');
+        {% if include.controls_config %}
+          const controlsConfig = {{ include.controls_config }};
+          {{ include.function_name }}('{{ include.container_id }}', controlsConfig);
+        {% else %}
+          {{ include.function_name }}('{{ include.container_id }}');
+        {% endif %}
       {% endif %}
     });
   </script>
