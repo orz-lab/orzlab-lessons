@@ -15,7 +15,7 @@ Bạn có thể đã gặp nó đâu đó trong môn **Toán**, hay trong **Vậ
 Trong lĩnh vực **Khoa học Máy tính** và đặc biệt là **Machine Learning**, vector không chỉ là những mũi tên. Nó là ngôn ngữ để chúng ta biểu diễn dữ liệu. Ta hãy cùng nhau mổ xẻ khái niệm này theo 2 góc nhìn chính, cũng như là 2 cách mà chúng ta sẽ dùng để  biểu diễn vector.
 
 
-# Vector là một mũi tên trong không gian
+# Vector là một "mũi tên" trong không gian
 
 {% capture wind_controls %}
 <div>
@@ -134,7 +134,7 @@ Một vector đơn giản là một cách để "đóng gói" dữ liệu thành
 </blockquote>
 
 {% capture quiz_question %}
-Đây là giá trị của vector trong hình dưới đây?
+Đâu là giá trị của vector trong hình dưới đây?
 <center>
 
   <img src="/assets/images/courses/LinearAlgebra/lessons/Vector/quiz_0.png" alt="" width="400">
@@ -281,4 +281,31 @@ Hãy xem xét một vài ví dụ:
 ## Ví dụ 1: Dữ liệu thuộc tính (Tabular Data)
 
 Giả sử bạn đang xây dựng một hệ thống dự đoán giá nhà. Bạn có thông tin về một căn nhà dựa trên các đặc trưng (features) sau:
+
+* Diện tích: $120m^2$
+* Số phòng ngủ: $3$
+* Khoảng cách đến trung tâm: $5.5km$
+* Năm xây dựng: $2010$
+
+Căn nhà này có thể được biểu diễn bằng một vector 4 chiều (còn gọi là vector đặc trưng - feature vector):
+
+$$
+\textbf{v}=\begin{bmatrix} 120 \\ 3 \\ 5.5 \\ 2010 \end{bmatrix}
+$$
+
+## Ví dụ 2: Hình ảnh (Image Data)
+
+Hãy tưởng tượng một bức ảnh trắng đen nhỏ kích thước $28\times 28$ pixels (giống như các ảnh chữ số viết tay trong bộ dữ liệu **MNIST** nổi tiếng). Bức ảnh này có tổng cộng $28 \times 28=784$ pixel.
+
+Máy tính có thể "duỗi phẳng" (flatten) bức ảnh này thành một danh sách dài các giá trị cường độ sáng của từng pixel, xếp theo thứ tự.
+
+$$
+\text{images} = \begin{bmatrix} p_1 \\ p_2 \\ p_3 \\ ... \\ p_{783} \\ p_{784} \end{bmatrix}
+$$
+
+Đây là một vector trong không gian 784 chiều!
+
+## Ví dụ 3: Văn bản (Text Data)
+
+Trong xử lý ngôn ngữ tự nhiên (NLP), các từ hoặc câu cũng được chuyển đổi thành vector (gọi là embeddings). Ví dụ, từ "Vua" có thể được biểu diễn bằng một vector (giả sử 300 chiều) chứa các giá trị số học mô tả ý nghĩa của nó và mối quan hệ với các từ khác như "Nữ hoàng", "Đàn ông", "Phụ nữ".
 
