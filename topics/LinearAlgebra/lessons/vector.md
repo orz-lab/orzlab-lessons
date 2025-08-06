@@ -219,3 +219,66 @@ $$
 \|\textbf{v}\| = \sqrt{4^2 + 3^2} = \sqrt{16 + 9} = \sqrt{25} = 5
 $$
 
+# Vector trong không gian $N$ chiều
+Thế giới của chúng ta không chỉ có 2 chiều (2D). Trong không gian 3D, chúng ta cần thêm một trục $Oz$. Một vector trong 3D sẽ trông như thế này:
+
+$$
+\textbf{u} = \begin{bmatrix} 2 \\ 3 \\ 5 \end{bmatrix}
+$$
+
+Nó vẫn là một mũi tên, bắt đầu từ $(0,0,0)$ và kết thúc tại $(4,3,5)$ trong không gian ba chiều [(animation)](#vector_in_3d).
+
+{% capture vector_3d_controls %}
+<div id="vector-3d-controls" style="margin-top: 10px; font-family: monospace; font-size: 1.1em;">
+  <div>
+    <span>Vector v = [</span>
+    <label for="coord-3d-x" class="sr-only">Tọa độ X</label>
+    <input type="number" id="coord-3d-x" value="4" step="0.5" style="width: 50px; text-align: center;">
+    <span>, </span>
+    <label for="coord-3d-y" class="sr-only">Tọa độ Y</label>
+    <input type="number" id="coord-3d-y" value="3" step="0.5" style="width: 50px; text-align: center;">
+    <span>, </span>
+    <label for="coord-3d-z" class="sr-only">Tọa độ Z</label>
+    <input type="number" id="coord-3d-z" value="5" step="0.5" style="width: 50px; text-align: center;">
+    <span>]</span>
+  </div>
+  <div id="vector-3d-info" style="margin-top: 10px; font-size: 0.9em;">
+    </div>
+</div>
+{% endcapture %}
+
+<div id="vector_in_3d">
+{% include animation.html
+  title="Vector trong không gian 3D"
+  animation_type="p5"
+  container_id="vector-3d-canvas-container"
+  function_name="VectorIn3D"
+  script_path="/assets/animations/p5/LinearAlgebra/3d_vector_in_coord.js"
+  controls_html=vector_3d_controls
+  controls_config='{"inputX": "coord-3d-x", "inputY": "coord-3d-y","inputZ": "coord-3d-z","infoDiv": "vector-3d-info"}'
+%}
+</div>
+
+Bây giờ, hãy tiến xa hơn. Điều gì sẽ xảy ra nếu chúng ta có một vector 4 chiều?
+
+$$
+\textbf{u} = \begin{bmatrix} 1 \\ -2 \\ 4 \\ 0.5 \end{bmatrix}
+$$
+
+Bạn sẽ vẽ nó như thế nào? Thật khó để hình dung một không gian 4 chiều. Bộ não của chúng ta không được thiết kế để làm việc đó. Đây chính là lúc góc nhìn "danh sách các con số" tỏa sáng.
+
+Mặc dù chúng ta không thể vẽ vector 4 chiều, chúng ta hoàn toàn có thể biểu diễn và tính toán với nó. Nó chỉ đơn giản là một danh sách gồm 4 con số. Khái niệm này mở rộng ra cho bất kỳ số nguyên $N$ nào. Một vector $N$ chiều là một danh sách gồm $N$ con số.
+
+# Vector trong Khoa học Máy tính và Machine Learning
+Trong Machine Learning, chúng ta hiếm khi làm việc với vector 2D hay 3D. Chúng ta thường làm việc với vector hàng trăm, hàng nghìn, thậm chí hàng triệu chiều.
+
+Tại sao? Vì Vector là ngôn ngữ chung để biểu diễn dữ liệu.
+
+Quá trình chuyển đổi dữ liệu thực tế (hình ảnh, văn bản, âm thanh...) thành dạng vector được gọi là **Vectorization**.
+
+Hãy xem xét một vài ví dụ:
+
+## Ví dụ 1: Dữ liệu thuộc tính (Tabular Data)
+
+Giả sử bạn đang xây dựng một hệ thống dự đoán giá nhà. Bạn có thông tin về một căn nhà dựa trên các đặc trưng (features) sau:
+
