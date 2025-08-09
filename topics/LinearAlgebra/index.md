@@ -5,5 +5,5 @@ course_id: LinearAlgebra
 description: Giải thích và minh họa những thứ cơ bản trong đại số tuyến tính
 thumbnail: /assets/images/courses/AIDU_challenge_2025/aidu.png
 featured: true
-visible: false
+visible: true
 ---
