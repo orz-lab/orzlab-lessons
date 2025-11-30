@@ -150,7 +150,7 @@ B. $\begin{bmatrix}2 \\ -7 \end{bmatrix}$
 {% endcapture %}
 
 {% capture option_c %}
-C. $\begin{bmatrix}4 \\ 7 \end{bmatrix}$
+C. $\begin{bmatrix}-4 \\ -7 \end{bmatrix}$
 {% endcapture %}
 
 {% capture option_d %}
@@ -308,4 +308,5 @@ $$
 ## Ví dụ 3: Văn bản (Text Data)
 
 Trong xử lý ngôn ngữ tự nhiên (NLP), các từ hoặc câu cũng được chuyển đổi thành vector (gọi là embeddings). Ví dụ, từ "Vua" có thể được biểu diễn bằng một vector (giả sử 300 chiều) chứa các giá trị số học mô tả ý nghĩa của nó và mối quan hệ với các từ khác như "Nữ hoàng", "Đàn ông", "Phụ nữ".
+
 
